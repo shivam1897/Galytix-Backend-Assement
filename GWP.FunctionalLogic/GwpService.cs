@@ -5,28 +5,50 @@ namespace GWP.FunctionalLogic
 {
     public class GwpService: IGwpServices
     {
-        private readonly ICache _dataBase;
+        private readonly ICache _dataCache;
 
         public GwpService(ICache cache)
         {
-            _dataBase = cache;
+            _dataCache = cache;
 
-        }
-
-        public Dictionary<string, decimal> GetAverageGWPOverPeriod(string[] LineOfBusiness, string startPeriod, string endPeriod)
-        {
-            var result = new Dictionary<string, decimal>();
-            return result;
         }
 
         public Dictionary<string, decimal> GetAverageGWPOverPeriod(string country, List<string> LineOfBusiness, int startPeriod = 2008, int endPeriod = 2015)
         {
-            var countries = _dataBase.GetColumnValue("country");
-            var index = Utility.GetIndexOfCountry(countries, country);
-
-            Utility.Get
             var result = new Dictionary<string, decimal>();
+
+            foreach (var lob in LineOfBusiness)
+            {
+                var avgGwp = CalculateAvgGwp(lob, country, startPeriod, endPeriod);
+                result[lob] = avgGwp;
+            }
+
             return result;
+        }
+
+        private decimal CalculateAvgGwp(string lob, string country, int startPeriod, int endPeriod)
+        {
+            var data = _dataCache.GetData();
+            int lobIndex = 3;
+            int startPeriodIndex = 11;
+            int endPeriodIndex = 11 + (endPeriod - startPeriod);
+            decimal temp = 0m;
+
+            for (int i=0; i<1000; i++)
+            {
+                if (string.IsNullOrEmpty(data[i, 0]) || !data[i, 0].Equals(country))
+                    continue;
+               
+                if(data[i, lobIndex].Equals(lob))
+                {
+                    for(int j=startPeriodIndex; j<= endPeriodIndex; j++)
+                    {
+                        if(decimal.TryParse(data[i, j], out decimal result))
+                            temp += result;
+                    }
+                }
+            }
+            return temp / (endPeriod - startPeriod);
         }
     }
 }

@@ -4,6 +4,6 @@ namespace GWP.Shared
 {
     public interface ICache
     {
-        public List<string> GetColumnValue(string columnName);
+        public string[,] GetData();
     }
 }

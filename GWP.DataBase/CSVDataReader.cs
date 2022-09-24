@@ -8,19 +8,24 @@ namespace GWP.DataBase
     /// </summary>
     public class CSVDataReader
     {
-        private readonly Dictionary<string, List<string>> _data;
+        private readonly string [, ] _data;
 
         /// <summary>
         /// Accessor to CSV data
         /// </summary>
-        public Dictionary<string, List<string>> CSVData { get  => _data; }
+        public string[,] CSVData { get => _data; }
+
+        private Dictionary<string, List<string>> GetData()
+        {
+            return default;
+        }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public CSVDataReader()
         {
-            _data = new Dictionary<string, List<string>>();
+            _data = new string[1000, 26];
             ReadCsv();
         }
 
@@ -29,35 +34,21 @@ namespace GWP.DataBase
         /// </summary>
         private void ReadCsv()
         {
-            bool IsFirstLine = true;
             using (var reader = new StreamReader(@"..\gwpByCountry.csv"))
             {
 
-                var keys = new string[100];
+                int i = 0;
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine().Split(',');
-                    
-                    int i = 0;
-                    foreach (var value in line)
+                    int j = 0;
+                    foreach(var value in line)
                     {
-                        if (IsFirstLine)
-                        {
-                            
-                            keys[i] = value;
-                            _data[value] = new List<string>();
-                        }
-                        else
-                        {
-                            _data[keys[i]].Add(value);
-                        }
-                        i++;
+                        _data[i, j] = value;
+                        j++;
                     }
-                    i = 0;
-                    IsFirstLine = false;
-
+                    i++;
                 }
-
             }
         }
     }

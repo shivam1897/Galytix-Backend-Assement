@@ -12,5 +12,6 @@ namespace GWP.Shared
         {
             return inputList.IndexOf(value);
         }
+
     }
 }
