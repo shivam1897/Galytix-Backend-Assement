@@ -1,4 +1,5 @@
 ﻿using GWP.Shared;
+using System;
 using System.Collections.Generic;
 
 namespace GWP.FunctionalLogic
@@ -26,7 +27,6 @@ namespace GWP.FunctionalLogic
         public Dictionary<string, decimal> GetAverageGWPOverPeriod(string country, List<string> LineOfBusiness, int startPeriod = 2008, int endPeriod = 2015)
         {
             var result = new Dictionary<string, decimal>();
-
             foreach (var lob in LineOfBusiness)
             {
                 var avgGwp = CalculateAvgGwp(lob, country, startPeriod, endPeriod);
@@ -44,21 +44,29 @@ namespace GWP.FunctionalLogic
             int endPeriodIndex = 11 + (endPeriod - startPeriod);
             decimal temp = 0m;
 
-            for (int i=0; i<1000; i++)
+            try
             {
-                if (string.IsNullOrEmpty(data[i, 0]) || !data[i, 0].Equals(country))
-                    continue;
-               
-                if(data[i, lobIndex].Equals(lob))
+                for (int i = 0; i < 1000; i++)
                 {
-                    for(int j=startPeriodIndex; j<= endPeriodIndex; j++)
+                    if (string.IsNullOrEmpty(data[i, 0]) || !data[i, 0].Equals(country))
+                        continue;
+
+                    if (data[i, lobIndex].Equals(lob))
                     {
-                        if(decimal.TryParse(data[i, j], out decimal result))
-                            temp += result;
+                        for (int j = startPeriodIndex; j <= endPeriodIndex; j++)
+                        {
+                            if (decimal.TryParse(data[i, j], out decimal result))
+                                temp += result;
+                        }
                     }
                 }
+                return temp / (endPeriod - startPeriod);
             }
-            return temp / (endPeriod - startPeriod);
+            catch
+            {
+                temp = 0m;
+            }
+            return temp;
         }
     }
 }

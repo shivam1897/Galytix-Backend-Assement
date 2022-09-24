@@ -1,6 +1,7 @@
 ﻿using GWP.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 
 namespace GWPCalculator.Controllers
@@ -10,7 +11,7 @@ namespace GWPCalculator.Controllers
     public class CountryGwp : ControllerBase
     {
         private readonly ILogger<CountryGwp> _logger;
-        private IGwpServices _gwpService;
+        private readonly IGwpServices _gwpService;
 
         public CountryGwp(ILogger<CountryGwp> logger, IGwpServices service)
         {
@@ -23,12 +24,27 @@ namespace GWPCalculator.Controllers
         {
             return "This assignment is submitted by Shivam Singh Yadav. Please test the POST request";
         }
-        
+
         [HttpPost]
-        public Dictionary<string, decimal> GetAverageGWPOverPeriod([FromBody] AvgGwpRequest request)
+        public AvgGwpResponse GetAverageGWPOverPeriod([FromBody] AvgGwpRequest request)
         {
-            var result = _gwpService.GetAverageGWPOverPeriod(request.Country, request.LineOfBusiness);
-            return result;
+            try
+            {
+                var result = _gwpService.GetAverageGWPOverPeriod(request.Country, request.LineOfBusiness);
+                return new AvgGwpResponse
+                {
+                    Result = result
+                };
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError($"{nameof(GetAverageGWPOverPeriod)} failed with error.", ex);
+            }
+
+            return new AvgGwpResponse
+            {
+                Result = new Dictionary<string, decimal>()
+            };
         }
     }
 }

@@ -15,11 +15,6 @@ namespace GWP.DataBase
         /// </summary>
         public string[,] CSVData { get => _data; }
 
-        private Dictionary<string, List<string>> GetData()
-        {
-            return default;
-        }
-
         /// <summary>
         /// Constructor
         /// </summary>
