@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GWP.Cache\GWP.Cache.csproj" />
+    <ProjectReference Include="..\GWP.FunctionalLogic\GWP.FunctionalLogic.csproj" />
+    <ProjectReference Include="..\GWP.Shared\GWP.Shared.csproj" />
+    <ProjectReference Include="..\GWP.Worker\GWP.Worker.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GWPCalculator", "GWPCalculator\GWPCalculator.csproj", "{40F4289B-3A69-4C48-ABD9-20D22C7102FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GWP.DataBase", "GWP.DataBase\GWP.DataBase.csproj", "{E5C0039F-2531-4534-881C-31727666297D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GWP.Shared", "GWP.Shared\GWP.Shared.csproj", "{A20FB77B-FFA4-40AF-86D5-CE3A3B445FE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GWP.Worker", "GWP.Worker\GWP.Worker.csproj", "{CBCC2F12-CF34-45CC-AEEA-F006D21F6099}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GWP.Cache", "GWP.Cache\GWP.Cache.csproj", "{C7E01238-613F-4584-9E07-AB7EE0F83E74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWP.FunctionalLogic", "GWP.FunctionalLogic\GWP.FunctionalLogic.csproj", "{AAB979A4-4504-4805-BD8C-E0808B26E269}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40F4289B-3A69-4C48-ABD9-20D22C7102FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40F4289B-3A69-4C48-ABD9-20D22C7102FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40F4289B-3A69-4C48-ABD9-20D22C7102FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40F4289B-3A69-4C48-ABD9-20D22C7102FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5C0039F-2531-4534-881C-31727666297D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5C0039F-2531-4534-881C-31727666297D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5C0039F-2531-4534-881C-31727666297D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5C0039F-2531-4534-881C-31727666297D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A20FB77B-FFA4-40AF-86D5-CE3A3B445FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A20FB77B-FFA4-40AF-86D5-CE3A3B445FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A20FB77B-FFA4-40AF-86D5-CE3A3B445FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A20FB77B-FFA4-40AF-86D5-CE3A3B445FE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCC2F12-CF34-45CC-AEEA-F006D21F6099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCC2F12-CF34-45CC-AEEA-F006D21F6099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCC2F12-CF34-45CC-AEEA-F006D21F6099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCC2F12-CF34-45CC-AEEA-F006D21F6099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7E01238-613F-4584-9E07-AB7EE0F83E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7E01238-613F-4584-9E07-AB7EE0F83E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7E01238-613F-4584-9E07-AB7EE0F83E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7E01238-613F-4584-9E07-AB7EE0F83E74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAB979A4-4504-4805-BD8C-E0808B26E269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAB979A4-4504-4805-BD8C-E0808B26E269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAB979A4-4504-4805-BD8C-E0808B26E269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAB979A4-4504-4805-BD8C-E0808B26E269}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDF5BFA9-E189-4477-B423-2EEB729D9FEB}
+	EndGlobalSection
+EndGlobal
