@@ -1,7 +1,6 @@
 using GWP.Cache;
 using GWP.FunctionalLogic;
 using GWP.Shared;
-using GWP.Worker;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -32,7 +31,6 @@ namespace GWPCalculator
 
             services.AddSingleton<ICache, GWPCache>();
             services.AddSingleton<IGwpServices, GwpService>();
-            services.AddHostedService<Worker>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

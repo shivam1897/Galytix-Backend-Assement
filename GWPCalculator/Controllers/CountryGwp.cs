@@ -21,7 +21,6 @@ namespace GWPCalculator.Controllers
         [HttpGet]
         public string Get()
         {
-            
             return "This assignment is submitted by Shivam Singh Yadav. Please test the POST request";
         }
         

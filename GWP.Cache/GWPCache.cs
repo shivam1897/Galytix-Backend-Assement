@@ -3,6 +3,9 @@ using GWP.Shared;
 
 namespace GWP.Cache
 {
+    /// <summary>
+    /// Class to provide data access as cache
+    /// </summary>
     public class GWPCache : ICache
     {
         private readonly CSVDataReader _dataBaseAccessor;
@@ -12,9 +15,7 @@ namespace GWP.Cache
             _dataBaseAccessor = new CSVDataReader();
         }
 
-        public string[,] GetData()
-        {
-            return _dataBaseAccessor.CSVData;
-        }
+        ///<inheritdoc/>
+        public string[,] GetData() => _dataBaseAccessor.CSVData;
     }
 }

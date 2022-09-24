@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace GWP.FunctionalLogic
 {
+    /// <summary>
+    /// Class responsibel for serving services over Gwp
+    /// </summary>
     public class GwpService: IGwpServices
     {
         private readonly ICache _dataCache;
@@ -10,9 +13,16 @@ namespace GWP.FunctionalLogic
         public GwpService(ICache cache)
         {
             _dataCache = cache;
-
         }
 
+        /// <summary>
+        /// Provides average gross written premium (GWP) over 2008-2015
+        /// </summary>
+        /// <param name="country"></param>
+        /// <param name="LineOfBusiness"></param>
+        /// <param name="startPeriod"></param>
+        /// <param name="endPeriod"></param>
+        /// <returns></returns>
         public Dictionary<string, decimal> GetAverageGWPOverPeriod(string country, List<string> LineOfBusiness, int startPeriod = 2008, int endPeriod = 2015)
         {
             var result = new Dictionary<string, decimal>();

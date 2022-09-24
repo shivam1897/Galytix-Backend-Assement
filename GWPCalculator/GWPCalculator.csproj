@@ -12,7 +12,6 @@
     <ProjectReference Include="..\GWP.Cache\GWP.Cache.csproj" />
     <ProjectReference Include="..\GWP.FunctionalLogic\GWP.FunctionalLogic.csproj" />
     <ProjectReference Include="..\GWP.Shared\GWP.Shared.csproj" />
-    <ProjectReference Include="..\GWP.Worker\GWP.Worker.csproj" />
   </ItemGroup>
 
 </Project>
