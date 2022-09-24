@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GWPCalculator.Controllers
 {
@@ -26,11 +27,12 @@ namespace GWPCalculator.Controllers
         }
 
         [HttpPost]
-        public AvgGwpResponse GetAverageGWPOverPeriod([FromBody] AvgGwpRequest request)
+        [Route("server/api/gwp/avg")]
+        public async Task<AvgGwpResponse> GetAverageGWPOverPeriod([FromBody] AvgGwpRequest request)
         {
             try
             {
-                var result = _gwpService.GetAverageGWPOverPeriod(request.Country, request.LineOfBusiness);
+                var result = await _gwpService.GetAverageGWPOverPeriod(request.Country, request.LineOfBusiness);
                 return new AvgGwpResponse
                 {
                     Result = result

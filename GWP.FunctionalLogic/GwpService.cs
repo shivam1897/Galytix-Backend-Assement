@@ -1,6 +1,7 @@
 ﻿using GWP.Shared;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GWP.FunctionalLogic
 {
@@ -24,7 +25,7 @@ namespace GWP.FunctionalLogic
         /// <param name="startPeriod"></param>
         /// <param name="endPeriod"></param>
         /// <returns></returns>
-        public Dictionary<string, decimal> GetAverageGWPOverPeriod(string country, List<string> LineOfBusiness, int startPeriod = 2008, int endPeriod = 2015)
+        public Task<Dictionary<string, decimal>> GetAverageGWPOverPeriod(string country, List<string> LineOfBusiness, int startPeriod = 2008, int endPeriod = 2015)
         {
             var result = new Dictionary<string, decimal>();
             foreach (var lob in LineOfBusiness)
@@ -33,7 +34,7 @@ namespace GWP.FunctionalLogic
                 result[lob] = avgGwp;
             }
 
-            return result;
+            return Task.FromResult(result);
         }
 
         private decimal CalculateAvgGwp(string lob, string country, int startPeriod, int endPeriod)

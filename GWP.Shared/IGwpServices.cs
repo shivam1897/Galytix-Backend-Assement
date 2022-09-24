@@ -19,6 +19,6 @@ namespace GWP.Shared
         /// <param name="startPeriod"></param>
         /// <param name="endPeriod"></param>
         /// <returns></returns>
-        public Dictionary<string, decimal> GetAverageGWPOverPeriod(string country, List<string>LineOfBusiness, int startPeriod = 2008, int endPeriod = 2015);
+        public Task<Dictionary<string, decimal>> GetAverageGWPOverPeriod(string country, List<string>LineOfBusiness, int startPeriod = 2008, int endPeriod = 2015);
     }
 }
