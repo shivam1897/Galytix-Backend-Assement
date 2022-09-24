@@ -4,6 +4,7 @@ using GWPCalculator.Controllers;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
 
 namespace Gwp.Test
 {
@@ -19,8 +20,11 @@ namespace Gwp.Test
         {
             _logger = new Mock<ILogger<CountryGwp>>();
             _cache = new Mock<ICache>();
+            SetUpCacheObject();
             _service = new GwpService(_cache.Object);
         }
+
+        
 
         [TestMethod]
         public void POST_API_CALL_TEST()
@@ -31,9 +35,20 @@ namespace Gwp.Test
                 Country = "test",
                 LineOfBusiness = new System.Collections.Generic.List<string> { "transport" }
             };
-            var result = controller.GetAverageGWPOverPeriod(request);
+            var res = controller.GetAverageGWPOverPeriod(request).Result;
 
-            Assert.IsNotNull(result);
+            Assert.IsNotNull(res);
+            Assert.AreEqual(request.LineOfBusiness.Count, res.Result.Count);
         }
+
+        /// <summary>
+        /// It can be used to set up mock data
+        /// </summary>
+        private void SetUpCacheObject()
+        {
+            var data = new string[10, 26];
+            _cache.Setup(x => x.GetData()).Returns(data);
+        }
+
     }
 }
